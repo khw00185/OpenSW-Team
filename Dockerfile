@@ -5,7 +5,7 @@ FROM tomcat:9.0.84-jdk8-corretto-al2
 WORKDIR $CATALINA_HOME/webapps 
 
 # Copy your project files to the webapps directory
-COPY ./BBSS/usr/local/tomcat/webapps/ROOT .
+COPY . .
 
 # Expose the port on which Tomcat will run
 EXPOSE 8080
