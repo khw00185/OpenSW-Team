@@ -1,8 +1,8 @@
 # Use an official Tomcat runtime as a parent image
-FROM tomcat:10.1-jre8-alpine
+FROM tomcat:10.1-jre20.0.2-alpine
 
 # Set the working directory to the Tomcat webapps directory
-WORKDIR $CATALINA_HOME/webapps
+WORKDIR $CATALINA_HOME/webapps 
 
 # Copy your project files to the webapps directory
 COPY ./BBSS/usr/local/tomcat/webapps/ROOT .
