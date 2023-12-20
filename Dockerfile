@@ -8,7 +8,7 @@ WORKDIR $CATALINA_HOME/webapps
 COPY . .
 
 # Expose the port on which Tomcat will run
-EXPOSE 8080
+EXPOSE 8081
 
 # Start Tomcat when the container runs
 CMD ["catalina.sh", "run"]
