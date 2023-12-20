@@ -1,5 +1,5 @@
 # Use an official Tomcat runtime as a parent image
-FROM tomcat:10.1-jre20.0.2-alpine
+FROM tomcat:10.1-jdk20.0.2-alpine
 
 # Set the working directory to the Tomcat webapps directory
 WORKDIR $CATALINA_HOME/webapps 
