@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redmine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redmine
+  template:
+    metadata:
+      labels:
+        app: redmine
+    spec:
+      containers:
+      - name: redmine
+        image: redmine:latest  # Redmine 이미지 태그는 실제 사용하는 이미지 버전에 맞게 수정하세요
+        ports:
+          - name: http-port
+            containerPort: 3000
