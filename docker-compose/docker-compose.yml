@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  opensw-team:
+    build: ../OpenSW-Team    # bbs 애플리케이션의 Dockerfile이 있는 경로
+    ports:
+      - "8081:8081"
+    depends_on:
+      - opensw-team-sql         # opensw-team-sql 컨테이너가 준비될 때까지 기다림
+
+  opensw-team-sql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: BBSS
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+    volumes:
+      - ../OpenSW-Team-SQL:/docker-entrypoint-initdb.d   # SQL 파일이 있는 경로를 컨테이너 내부로 마운트
+    ports:
+      - "3306:3306"             # MySQL 포트
+
+networks:
+  mynetwork:
+    driver: bridge
